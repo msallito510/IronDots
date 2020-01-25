@@ -1,0 +1,126 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: 'Press Start 2P';
+  background: #130d28;
+}
+
+body:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+  opacity: 0.2;
+  z-index: 100;
+  content: "";
+  pointer-events: none;
+}
+
+.dots-container {
+  position: relative;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 50px;
+  padding: 50px * 4;
+}
+
+.dots-container h1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 90px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 5px;
+  text-shadow: -2px 0 0 #fdff2a,
+    -4px 0 0 #df4a42,
+    2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
+
+  animation: blink 1s steps(4, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.dots div:nth-child(1) {
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  display: inline-block;
+  background: #6ba539;
+  border-radius: 50%;
+}
+
+.dots div:nth-child(2) {
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  display: inline-block;
+  background: #a53939;
+  border-radius: 50%;
+}
+
+.dots div:nth-child(3) {
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  display: inline-block;
+  background: #a5a539;
+  border-radius: 50%;
+}
+
+.dots div:nth-child(4) {
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  display: inline-block;
+  background: #3964a5;
+  border-radius: 50%;
+}
+
+.menu h3 {
+  font-size: 20px;
+  color: rgb(147, 154, 255);
+  text-shadow: 2px 2px 0 rgb(47, 61, 255);
+}
+
+.startBttn {
+  font-family: 'Press Start 2P';
+  font-size: 30px;
+  color: rgb(192, 192, 192);
+  text-shadow: 2px 2px 0 rgb(192, 11, 11);
+  background: #130d28;
+}
+
+.startBttn:hover {
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+}
+
+.footer p {
+  position: absolute;
+  bottom: 10px;
+  left: 600px;
+  font-size: 10px;
+  color: rgb(226, 179, 24);
+  text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
+    2px 2px 0 rgb(151, 109, 19);
+}
