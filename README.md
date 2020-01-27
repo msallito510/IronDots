@@ -63,7 +63,7 @@ Html5 DOM manipulation - Vanilla and Javascript
 ## Data structure
 
 _main.js_
-`
+```js
 createStartScreen(id);
 createGameScreen(id);
 createGameOverScreen(id);
@@ -99,7 +99,7 @@ function Player(){
   this.color;
 };
 Player.selectDots();
-`
+```
 
 
 ## Links
