@@ -5,24 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
     <title>Document</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="block mover"></div>
-        <div class="block jumper"></div>
-        
-      </div>
-      <div class="wrapper">
-        <div id="block" class="block mover"></div>
-        <div id="block" class="block jumper"></div>
-        
-      </div>
-
-      <p class="selected-items">
-          You have selected the following images: 
-          <span id="selected-item-list"></span>
-        </p>
+  <h1>Jquery UI Selectable Demo with Multiple Lists</h1>
+  <p>Draw a box with your cursor to select items. Hold down the Ctrl key to make multiple non-adjacent selections. </p>
+  
+  <h2>List 1</h2>
+  <div class="selectable">
+    <img src="http://dummyimage.com/190x190/2c488f/ffffff&text=Image+1" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/522F93/ffffff&text=Image+2" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/882F93/ffffff&text=Image+3" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/932F64/ffffff&text=Image+4" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/6D932F/ffffff&text=Image+5" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/2F9379/ffffff&text=Image+6" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/2F7993/ffffff&text=Image+7" class="ui-widget-content" />
+  </div>
+  
+  <h2>List 2</h2>
+  <div class="selectable">
+    <img src="http://dummyimage.com/190x190/235148/ffffff&text=Image+8" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/49131E/ffffff&text=Image+9" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/493713/ffffff&text=Image+10" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/384913/ffffff&text=Image+11" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/00B7A8/ffffff&text=Image+12" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/F9E60E/ffffff&text=Image+13" class="ui-widget-content" />
+    <img src="http://dummyimage.com/190x190/F000F4/ffffff&text=Image+14" class="ui-widget-content" />
+  </div>
+  
+  <p class="selected-items">You have selected the following images: <span id="selected-item-list"></span></p>
 
         <script src="js/test.js"></script>
 </body>

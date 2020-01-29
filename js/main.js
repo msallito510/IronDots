@@ -15,10 +15,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
   let html = "";
   dotsGame.shuffleDots().forEach(el => {
-    html += `<div class="dotGame"> background:${el.background}`;
-    html += `<div class="dotGame" background:${el.background}`;
-    html += `<div class="dotGame"> background:${el.background}`;
-    html += `<div class="dotGame" background:${el.background}`;
+    html += `<div class="dotGame dotClass" style='background:${el.background}'>`;
     html += `</div>`;
   });
 
