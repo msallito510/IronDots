@@ -25,6 +25,7 @@ body:before {
   pointer-events: none;
 }
 
+/* ####### start - landing page section ####### */
 .dots-container {
   position: relative;
   padding-top: 100px;
@@ -61,49 +62,55 @@ body:before {
   }
 }
 
-.dots div:nth-child(1) {
+.dotClass {
   width: 1em;
   height: 1em;
   margin: 0 .2em;
   display: inline-block;
+  border-radius: 50%;
+}
+
+.dotClass-0 {
   background: #6ba539;
-  border-radius: 50%;
 }
 
-.dots div:nth-child(2) {
-  width: 1em;
-  height: 1em;
-  margin: 0 .2em;
-  display: inline-block;
+.dotClass-1 {
   background: #a53939;
-  border-radius: 50%;
 }
 
-.dots div:nth-child(3) {
-  width: 1em;
-  height: 1em;
-  margin: 0 .2em;
-  display: inline-block;
+.dotClass-2 {
   background: #a5a539;
-  border-radius: 50%;
 }
 
-.dots div:nth-child(4) {
-  width: 1em;
-  height: 1em;
-  margin: 0 .2em;
-  display: inline-block;
+.dotClass-3 {
   background: #3964a5;
-  border-radius: 50%;
 }
 
-.menu h3 {
+.menu>h3 {
   font-size: 20px;
   color: rgb(147, 154, 255);
   text-shadow: 2px 2px 0 rgb(47, 61, 255);
 }
 
+.menu .menuOptions>h3 {
+  position: relative;
+  left: 25%;
+  margin: 15px;
+  width: 50%;
+  text-decoration: none;
+  color: rgb(192, 192, 192);
+  font-size: 20px;
+  text-shadow: 2px 2px 0 rgb(192, 11, 11);
+  background: #130d28;
+}
+
+.menuOptions h3:hover {
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+}
+
 .startBttn {
+  position: relative;
+  left: 1%;
   font-family: 'Press Start 2P';
   font-size: 30px;
   color: rgb(192, 192, 192);
@@ -115,6 +122,51 @@ body:before {
   background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
 }
 
+#frameBox {
+  position: absolute;
+  left: 300px;
+  width: 800px;
+  height: 600px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #130d28;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .footer p {
   position: absolute;
   bottom: 10px;
@@ -124,3 +176,5 @@ body:before {
   text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
     2px 2px 0 rgb(151, 109, 19);
 }
+
+/* ####### End - landing page section ####### */
