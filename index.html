@@ -10,7 +10,9 @@
 <body>
   <div class="dots-container">    
     <h1 id="titleDot">Iron Dots</h1>
-    <div class="gradient-border" id="frameBox" style="display: none"></div>
+    <div class="gradient-border" id="frameBox" style="display: none">
+    </div>
+    
     <div id="dots" class="dots">
       <div class="dot"></div>
       <div class="dot"></div>
@@ -34,13 +36,19 @@
         Game Over
       </h1>
     </div>
+    <div class="score" style="display: none">
+      <h2>Score</h2>
+      <p>Player score: <span id="player_score">0</span></p>
+    </div> 
+    <div class="countDown" style="display: none">
+      <p>Count down: <span id="count_down">0</span></p>
+    </div>
   </div>
   <footer class="footer">
     <p>msallito - Ironhack - 2020</p>
   </footer>
 
   <script src="js/game.js"></script>
-  <script src="js/dots.js"></script>
   <script src="js/main.js"></script>
 </body>
 

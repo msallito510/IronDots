@@ -1,5 +1,26 @@
+const dotsBckG = [
+  { background: "#6ba539" },
+  { background: "#a53939" },
+  { background: "#a5a539" },
+  { background: "#3964a5" }
+];
+
+const dotsGame = new Game(dotsBckG);
+
+// instanciar a game
+// y llamar al método de game necesario game.start()
+
 document.addEventListener("DOMContentLoaded", event => {
   getDots();
+
+  let html = "";
+  dotsGame.shuffleDots().forEach(el => {
+    html += `<div class="dotGame"> background:${el.background}`;
+    html += `<div class="dotGame" background:${el.background}`;
+    html += `<div class="dotGame"> background:${el.background}`;
+    html += `<div class="dotGame" background:${el.background}`;
+    html += `</div>`;
+  });
 
   function printGameOver() {
     cleanScreen();
@@ -8,14 +29,19 @@ document.addEventListener("DOMContentLoaded", event => {
     gameOver.style = "display: block";
   }
 
-  function start() {
-    // game.start();
-    cleanScreen();
-    getDots();
-  }
-
+  // <---Start button--->
   startBtn = document.getElementById("start");
   startBtn.addEventListener("click", start);
+
+  function start() {
+    cleanScreen();
+    setFrame();
+    // Add all the divs to the HTML
+    document.querySelector("#frameBox").innerHTML = html;
+
+    // dotsGame.start();
+    // getDots();
+  }
 
   //######### FUNCTION SECTION ###############
   //##########################################
@@ -26,7 +52,7 @@ document.addEventListener("DOMContentLoaded", event => {
     menu = document.getElementById("menu");
 
     titleDot.style = "display: none";
-    // dotsInit.style = "display: none";
+    dotsInit.style = "display: none";
     menu.style = "display: none";
   }
 
@@ -38,18 +64,14 @@ document.addEventListener("DOMContentLoaded", event => {
   function getDots() {
     dotChild = document.querySelectorAll(".dot");
     dotChild.forEach(function(d, idx) {
-      d.classList.add("dotClass", "dotClass-" + idx);
+      d.classList.add("dotClass", `dotClass-${idx}`);
     });
   }
 
-  // game = new Game(
-  //   {
-  //     ctx,
-  //     rows: canvas.width / widthCell,
-  //     columns: canvas.height / widthCell,
-  //     maxCells: widthCell,
-  //     snake: new Snake(canvas.width / widthCell, canvas.height / widthCell)
-  //   },
-  //   printGameOver
-  // );
+  function setDots() {
+    dotChild = document.querySelectorAll(".dotGame");
+    dotChild.forEach(function(d) {
+      d.classList.add("dotClass");
+    });
+  }
 });
