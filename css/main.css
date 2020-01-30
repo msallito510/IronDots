@@ -99,24 +99,24 @@ body:before {
   margin: 15px;
   width: 50%;
   text-decoration: none;
-  color: rgb(192, 192, 192);
   font-size: 20px;
-  text-shadow: 2px 2px 0 rgb(192, 11, 11);
-  background: #130d28;
 }
 
 .menuOptions h3:hover {
   background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
 }
 
-.startBttn {
-  position: relative;
-  left: 1%;
+.retroStyle {
   font-family: 'Press Start 2P';
-  font-size: 30px;
   color: rgb(192, 192, 192);
   text-shadow: 2px 2px 0 rgb(192, 11, 11);
   background: #130d28;
+}
+
+.startBttn {
+  position: relative;
+  left: 1%;
+  font-size: 30px;
 }
 
 .startBttn:hover {
@@ -132,6 +132,17 @@ body:before {
   color: white;
   font-family: 'Raleway';
   font-size: 2.5rem;
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
+  font-size: 13px;
+  margin: 15px;
+  ;
 }
 
 .gradient-border {

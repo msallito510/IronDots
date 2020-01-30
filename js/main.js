@@ -1,29 +1,25 @@
 const dotsBckG = [
-  [
-    { background: "#6ba539" },
-    { background: "#a53939" },
-    { background: "#a5a539" },
-    { background: "#3964a5" }
-  ],
-  [
-    { background: "#6ba539" },
-    { background: "#a53939" },
-    { background: "#a5a539" },
-    { background: "#3964a5" }
-  ]
+  { background: "#6ba539" },
+  { background: "#a53939" },
+  { background: "#a5a539" },
+  { background: "#3964a5" }
 ];
+
+/*
+en frameBox
+display: flex;
+    justify-content: center;
+    width: 470px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    */
 
 const dotsGame = new Game(dotsBckG);
 
-// instanciar a game
-// y llamar al método de game necesario game.start()
-
 document.addEventListener("DOMContentLoaded", event => {
-  let html = "";
   let levelGame = 1;
 
   initPage();
-  setLevelGame(levelGame);
 
   function printGameOver() {
     cleanScreen();
@@ -38,9 +34,13 @@ document.addEventListener("DOMContentLoaded", event => {
 
   function start() {
     cleanScreen();
+
+    setLevelGame(levelGame);
+
     setFrame();
-    // Add all the divs to the HTML
-    document.querySelector("#frameBox").innerHTML = html;
+
+    setAllDotsInScreen(html);
+
     selectDots();
   }
 
@@ -57,10 +57,11 @@ document.addEventListener("DOMContentLoaded", event => {
 
   function setLevelGame(level) {
     idxHtml = 0;
+    html = "";
 
     switch (level) {
       case 1:
-        dotsGame.shuffleDots()[0].forEach(el => {
+        dotsGame.shuffleDots().forEach(el => {
           html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
             el.background
           }'>`;
@@ -92,11 +93,20 @@ document.addEventListener("DOMContentLoaded", event => {
 
   function setFrame() {
     frameBox = document.getElementById("frameBox");
+    displayScore = document.getElementById("score");
+    displayCountDown = document.getElementById("countDown");
+
     frameBox.style = "display: block";
+    displayScore.style = "display: block; margin: 20px;";
+    displayCountDown.style = "display: block; margin: 20px;";
+  }
+
+  function setAllDotsInScreen(html) {
+    document.querySelector("#frameBox").innerHTML = html;
   }
 
   function selectDots() {
-    selectNodes = document.getElementsByClassName("dotGame", "div");
+    selectNodes = document.getElementsByClassName("dotGame");
     selectedItemList = [];
 
     for (i = 0; i < selectNodes.length; i++) {
@@ -105,20 +115,20 @@ document.addEventListener("DOMContentLoaded", event => {
           id: e.toElement.id,
           colour: e.toElement.style.background
         });
-        if (
-          selectedItemList.length > 1 &&
-          !dotsGame.areTheSameNode(selectedItemList[0], selectedItemList[1])
-        ) {
+
+        if (selectedItemList.length > 1) {
           if (
-            dotsGame.checkforSameColour(
-              selectedItemList[0].colour,
-              selectedItemList[1].colour
-            )
+            !dotsGame.areTheSameNode(selectedItemList[0], selectedItemList[1])
           ) {
-            alert("You Win the game!");
-            dotsGame.setLevelGame(selectedItemList);
-            selectedItemList = [];
+            if (dotsGame.checkforSameColour(selectedItemList)) {
+              // levelGame++;
+              alert("well done!");
+              start();
+            }
+          } else {
+            alert("ey! it's the same dot!");
           }
+          selectedItemList = [];
         }
         console.log(selectedItemList);
       };

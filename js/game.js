@@ -3,57 +3,45 @@ class Game {
     this.dots = dots;
     this.dotMatched = 0;
     this.countDown = 60;
-    // this.dots = `
-    //   <div>
-    // `;
-  }
-
-  start() {
-    this.getDots();
-  }
-
-  getDot() {
-    this.dots.push();
   }
 
   shuffleDots() {
     let currentIndex = 4;
     let tmpValue = undefined;
-    let randomIndex;
-    let cloneCounter = 1;
-    let randomCloneIndex;
+    let randomIndex = undefined;
+    let counterPair = 1;
 
     while (currentIndex > 0) {
-      randomCloneIndex = Math.floor(Math.random() * currentIndex);
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
 
       tmpValue = this.dots[currentIndex];
-      if (randomIndex === randomCloneIndex && cloneCounter > 0) {
-        this.dots[currentIndex] = this.dots[randomIndex];
-        if (currentIndex <= 4) {
-          this.dots[currentIndex - 1] = this.dots[randomIndex];
-        } else if (currentIndex >= 0) {
-          this.dots[currentIndex + 1] = this.dots[randomIndex];
-        }
 
-        currentIndex -= 1;
-        cloneCounter -= 1;
-      } else {
+      if (randomIndex <= 4 && counterPair > 0) {
         this.dots[currentIndex] = this.dots[randomIndex];
-        this.dots[randomIndex] = tmpValue;
+        this.dots[currentIndex - 1] = this.dots[randomIndex];
+        counterPair -= 1;
+        currentIndex -= 1;
+      } else if (currentIndex >= 0 && counterPair > 0) {
+        this.dots[currentIndex + 1] = this.dots[randomIndex];
+        counterPair -= 1;
+        currentIndex -= 1;
       }
+
+      this.dots[randomIndex] = tmpValue;
     }
 
     return this.dots;
   }
 
-  checkforSameColour(dot1, dot2) {
+  checkforSameColour(dotSelected) {
     let dots = false;
 
-    if (dot1 === dot2) {
-      dots = true;
-      this.dotMatched++;
+    if (dotSelected[0 + 1].id === dotSelected[1].id) {
+      if (dotSelected[0].colour === dotSelected[1].colour) {
+        dots = true;
+        this.dotMatched++;
+      }
     }
 
     return dots;
@@ -62,7 +50,7 @@ class Game {
   areTheSameNode(dot1, dot2) {
     let areTheSame = false;
 
-    if (dot1 === dot2) {
+    if (dot1.id === dot2.id) {
       areTheSame = true;
     }
 
