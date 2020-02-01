@@ -22,10 +22,15 @@ document.addEventListener("DOMContentLoaded", event => {
   initPage();
 
   function printGameOver() {
-    cleanScreen();
+    // cleanScreen();
 
+    frameBox = document.getElementById("frameBox");
     gameOver = document.getElementById("gameover");
+    displayDotMatched = document.getElementById("player_score_GameOver");
+
+    frameBox.style = "background: transparent";
     gameOver.style = "display: block";
+    displayDotMatched.textContent = dotsGame.dotMatched;
   }
 
   // <---Start button--->
@@ -37,9 +42,9 @@ document.addEventListener("DOMContentLoaded", event => {
 
     timerStart();
 
-    setLevelGame(levelGame);
+    shuffleDots(levelGame);
 
-    setFrame();
+    // setFrame();
 
     setAllDotsInScreen(html);
 
@@ -62,11 +67,9 @@ document.addEventListener("DOMContentLoaded", event => {
 
     let countDown = function() {
       if (timerPlaceholder.textContent <= 0) {
-        alert("Done..");
         clearInterval(myTime);
-// show score and see if the challenge is done
-
-
+        // show score and see if the challenge is done
+        challengeGame();
       } else {
         timerPlaceholder.textContent = timerPlaceholder.textContent - 1;
       }
@@ -79,15 +82,28 @@ document.addEventListener("DOMContentLoaded", event => {
     const timerPause = document.getElementById("pause");
     let paused = false;
 
-    if(!paused){
+    if (!paused) {
       paused = true;
       clearInterval(timeinterval); // stop the clock
-      time_left = time_remaining(deadline).total; 
+      time_left = time_remaining(deadline).total;
+    }
   }
 
-  function setLevelGame(level) {
+  function challengeGame() {
+    totalScore = dotsGame.dotMatched;
+
+    if (totalScore < 50) {
+      printGameOver();
+    } else {
+      levelGame++;
+      start();
+    }
+  }
+
+  function shuffleDots(level) {
     idxHtml = 0;
     html = "";
+    setFrame();
 
     switch (level) {
       case 1:
@@ -130,7 +146,7 @@ document.addEventListener("DOMContentLoaded", event => {
     frameBox.style = "display: block";
     displayScore.style = "display: block; margin: 20px;";
     displayCountDown.style = "display: block; margin: 20px;";
-    player_score.textContent = dotsGame.dotMatched;
+    displayDotMatched.textContent = dotsGame.dotMatched;
   }
 
   function setAllDotsInScreen(html) {
@@ -153,9 +169,9 @@ document.addEventListener("DOMContentLoaded", event => {
             !dotsGame.areTheSameNode(selectedItemList[0], selectedItemList[1])
           ) {
             if (dotsGame.checkforSameColour(selectedItemList)) {
-              // levelGame++;
               alert("well done!");
-              start();
+              // start();
+              shuffleDots(levelGame);
             }
           } else {
             alert("ey! it's the same dot!");

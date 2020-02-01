@@ -105,3 +105,4 @@ Player.selectDots();
 
 [Iron flip run Trello](https://trello.com/b/pj81BuC3/irondots)
 [Github](https://github.com/msallito510/IronDots)
+[Presentation](https://slides.com/marcebcn/irondots/#/)

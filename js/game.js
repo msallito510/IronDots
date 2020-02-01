@@ -2,7 +2,7 @@ class Game {
   constructor(dots) {
     this.dots = dots;
     this.dotMatched = 0;
-    this.countDown = 20;
+    this.countDown = 10;
   }
 
   shuffleDots() {

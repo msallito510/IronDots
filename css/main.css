@@ -123,6 +123,11 @@ body:before {
   background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
 }
 
+.gameover h1 {
+  position: absolute;
+  bottom: 50px;
+}
+
 #frameBox {
   position: absolute;
   top: 15px;
@@ -142,7 +147,7 @@ body:before {
   align-content: stretch;
   font-size: 13px;
   margin: 15px;
-  ;
+  width: 240px;
 }
 
 .gradient-border {
