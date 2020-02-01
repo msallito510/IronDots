@@ -21,21 +21,28 @@ document.addEventListener("DOMContentLoaded", event => {
 
   initPage();
 
-  function printGameOver() {
-    // cleanScreen();
+  // <---Start button--->
+  startBtn = document.getElementById("start");
+  restartBtn = document.getElementById("restart");
 
+  startBtn.addEventListener("click", start);
+  restartBtn.addEventListener("click", restart);
+
+  function restart() {
+    location.reload();
+  }
+
+  function printGameOver() {
     frameBox = document.getElementById("frameBox");
     gameOver = document.getElementById("gameover");
     displayDotMatched = document.getElementById("player_score_GameOver");
+    restart = document.getElementById("restart");
 
     frameBox.style = "background: transparent";
     gameOver.style = "display: block";
+    restart.style = "diplay: block";
     displayDotMatched.textContent = dotsGame.dotMatched;
   }
-
-  // <---Start button--->
-  startBtn = document.getElementById("start");
-  startBtn.addEventListener("click", start);
 
   function start() {
     cleanScreen();
@@ -43,8 +50,6 @@ document.addEventListener("DOMContentLoaded", event => {
     timerStart();
 
     shuffleDots(levelGame);
-
-    // setFrame();
 
     setAllDotsInScreen(html);
 

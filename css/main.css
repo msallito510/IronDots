@@ -128,6 +128,11 @@ body:before {
   bottom: 50px;
 }
 
+#restart {
+  position: absolute;
+  left: 60px;
+}
+
 #frameBox {
   position: absolute;
   top: 15px;

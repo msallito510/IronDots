@@ -16,12 +16,15 @@
       <div class="score" id="score" style="display: none">
         <h2>Player 1</h2>
         <h6>challenge - 50 matches</h6>
-        <p>Score: <span id="player_score_GameOver">0</span></p>
+        <p>Score: <span id="player_score">0</span></p>
       </div>
       <div class="countDown" id="countDown" style="display: none">
         <p>Time: <span id="count_down">10</span></p>
         <button class="pauseBtn retroStyle" id="pause">Pause</button>
         <button class="resumeBtn retroStyle" id="resume">Resume</button>
+      </div>
+      <div>
+        <button class="resumeBtn retroStyle" id="restart" style="display: none">Restart</button>
       </div>
     </div>
 
@@ -46,7 +49,7 @@
     </div>
     <div id="gameover" class="gameover" style="display: none">
       <h1>Game Over</h1>
-      <p>Total Score: <span id="player_score">0</span></p>
+      <p>Total Score: <span id="player_score_GameOver">0</span></p>
     </div>
   </div>
   <footer class="footer">
