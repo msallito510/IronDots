@@ -2,7 +2,7 @@ class Game {
   constructor(dots) {
     this.dots = dots;
     this.dotMatched = 0;
-    this.countDown = 60;
+    this.countDown = 20;
   }
 
   shuffleDots() {
@@ -64,6 +64,10 @@ class Game {
       hasFinished = true;
     }
     return hasFinished;
+  }
+
+  timerStart() {
+    countDown = setInterval(20, 1000);
   }
 
   // -- > ignored

@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", event => {
   function start() {
     cleanScreen();
 
+    timerStart();
+
     setLevelGame(levelGame);
 
     setFrame();
@@ -53,6 +55,34 @@ document.addEventListener("DOMContentLoaded", event => {
     dotChild.forEach(function(d, idx) {
       d.classList.add("dotClass", `dotClass-${idx}`);
     });
+  }
+
+  function timerStart() {
+    const timerPlaceholder = document.getElementById("count_down");
+
+    let countDown = function() {
+      if (timerPlaceholder.textContent <= 0) {
+        alert("Done..");
+        clearInterval(myTime);
+// show score and see if the challenge is done
+
+
+      } else {
+        timerPlaceholder.textContent = timerPlaceholder.textContent - 1;
+      }
+    };
+
+    var myTime = setInterval(countDown, 1000);
+  }
+
+  function timerPause() {
+    const timerPause = document.getElementById("pause");
+    let paused = false;
+
+    if(!paused){
+      paused = true;
+      clearInterval(timeinterval); // stop the clock
+      time_left = time_remaining(deadline).total; 
   }
 
   function setLevelGame(level) {
@@ -95,10 +125,12 @@ document.addEventListener("DOMContentLoaded", event => {
     frameBox = document.getElementById("frameBox");
     displayScore = document.getElementById("score");
     displayCountDown = document.getElementById("countDown");
+    displayDotMatched = document.getElementById("player_score");
 
     frameBox.style = "display: block";
     displayScore.style = "display: block; margin: 20px;";
     displayCountDown.style = "display: block; margin: 20px;";
+    player_score.textContent = dotsGame.dotMatched;
   }
 
   function setAllDotsInScreen(html) {
