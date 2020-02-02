@@ -7,20 +7,26 @@ class Game {
   shuffleDots(levelGame) {
     let currentIndex = levelGame;
     let randomIndex = undefined;
+    let tmp = undefined;
     let counterPair = 1;
 
     while (currentIndex > 0) {
       randomIndex = Math.floor(Math.random() * 8);
       currentIndex -= 1;
 
-      if (randomIndex < levelGame && counterPair > 0) {
+      if (
+        currentIndex !== randomIndex &&
+        counterPair > 0 &&
+        randomIndex !== tmp
+      ) {
+        tmp = randomIndex;
         this.dots[currentIndex] = this.dots[randomIndex];
         this.dots[currentIndex - 1] = this.dots[randomIndex];
         counterPair -= 1;
         currentIndex -= 1;
-      } else if (randomIndex < 8 && counterPair > 0) {
-        this.dots[randomIndex - 1] = this.dots[randomIndex];
-        counterPair -= 1;
+      } else if (randomIndex !== tmp) {
+        tmp = randomIndex;
+        this.dots[currentIndex] = this.dots[randomIndex];
       } else {
         this.dots[currentIndex] = this.dots[randomIndex];
       }
@@ -32,11 +38,9 @@ class Game {
   checkforSameColour(dotSelected) {
     let dots = false;
 
-    if (dotSelected[0 + 1].id === dotSelected[1].id) {
-      if (dotSelected[0].colour === dotSelected[1].colour) {
-        dots = true;
-        this.dotMatched++;
-      }
+    if (dotSelected[0].colour === dotSelected[1].colour) {
+      dots = true;
+      this.dotMatched++;
     }
 
     return dots;

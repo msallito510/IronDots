@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", event => {
           if (
             !dotsGame.areTheSameNode(selectedItemList[0], selectedItemList[1])
           ) {
-            if (dotsGame.checkforSameColour(selectedItemList)) {
+            if (dotsGame.checkforSameColour(selectedItemList, levelGame)) {
               alert("well done!");
 
               regenerateGame();
@@ -189,7 +189,6 @@ document.addEventListener("DOMContentLoaded", event => {
           }
           selectedItemList = [];
         }
-        console.log(selectedItemList);
       };
     }
   }
