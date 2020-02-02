@@ -128,11 +128,6 @@ body:before {
   bottom: 50px;
 }
 
-#restart {
-  position: absolute;
-  left: 60px;
-}
-
 #frameBox {
   position: absolute;
   top: 15px;
@@ -148,7 +143,7 @@ body:before {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   align-content: stretch;
   font-size: 13px;
   margin: 15px;
@@ -175,6 +170,14 @@ body:before {
   animation: animatedgradient 3s ease alternate infinite;
   background-size: 300% 300%;
 }
+
+.dotGameContent {
+  position: absolute;
+  margin-top: 15%;
+  width: 225px;
+  right: 260px;
+}
+
 
 @keyframes animatedgradient {
   0% {

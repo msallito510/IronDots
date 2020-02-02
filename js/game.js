@@ -2,33 +2,28 @@ class Game {
   constructor(dots) {
     this.dots = dots;
     this.dotMatched = 0;
-    this.countDown = 10;
   }
 
-  shuffleDots() {
-    let currentIndex = 4;
-    let tmpValue = undefined;
+  shuffleDots(levelGame) {
+    let currentIndex = levelGame;
     let randomIndex = undefined;
     let counterPair = 1;
 
     while (currentIndex > 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
+      randomIndex = Math.floor(Math.random() * 8);
       currentIndex -= 1;
 
-      tmpValue = this.dots[currentIndex];
-
-      if (randomIndex <= 4 && counterPair > 0) {
+      if (randomIndex < levelGame && counterPair > 0) {
         this.dots[currentIndex] = this.dots[randomIndex];
         this.dots[currentIndex - 1] = this.dots[randomIndex];
         counterPair -= 1;
         currentIndex -= 1;
-      } else if (currentIndex >= 0 && counterPair > 0) {
-        this.dots[currentIndex + 1] = this.dots[randomIndex];
+      } else if (randomIndex < 8 && counterPair > 0) {
+        this.dots[randomIndex - 1] = this.dots[randomIndex];
         counterPair -= 1;
-        currentIndex -= 1;
+      } else {
+        this.dots[currentIndex] = this.dots[randomIndex];
       }
-
-      this.dots[randomIndex] = tmpValue;
     }
 
     return this.dots;
@@ -64,10 +59,6 @@ class Game {
       hasFinished = true;
     }
     return hasFinished;
-  }
-
-  timerStart() {
-    countDown = setInterval(20, 1000);
   }
 
   // -- > ignored
