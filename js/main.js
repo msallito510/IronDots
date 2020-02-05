@@ -1,23 +1,36 @@
 const dotsBckG = [
-  { background: "#6ba539" },
+  { background: "#00FF00" },
   { background: "#a53939" },
-  { background: "#a5a539" },
+  { background: "#F7FE2E" },
   { background: "#3964a5" },
-  { background: "#4405fc" },
+  { background: "#0404B4" },
   { background: "#91fcfe" },
-  { background: "#565B73" },
-  { background: "#f79533" }
+  { background: "#B4045F" },
+  { background: "#f79533" },
+  { background: "#4169E1" },
+  { background: "#00F5FF" },
+  { background: "#00C78C" },
+  { background: "#2E8B57" },
+  { background: "#8B8B00" },
+  { background: "#DAA520" },
+  { background: "#8B5A00" },
+  { background: "#FFD39B" },
+  { background: "#FF7D40" },
+  { background: "#FFC1C1" },
+  { background: "#D2B48C" },
+  { background: "#DC143C" },
+  { background: "#FFC0CB" },
+  { background: "#8B636C" },
+  { background: "#EE3A8C" },
+  { background: "#FF69B4" },
+  { background: "#CD6090" },
+  { background: "#EE7AE9" },
+  { background: "#AB82FF" }
 ];
 
-/*
-en frameBox
-display: flex;
-    justify-content: center;
-    width: 470px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    */
-
+const level1 = 5;
+const level2 = 15;
+const leve3 = 30;
 const dotsGame = new Game(dotsBckG);
 
 document.addEventListener("DOMContentLoaded", event => {
@@ -25,18 +38,22 @@ document.addEventListener("DOMContentLoaded", event => {
 
   initPage();
 
-  // <---Start button--->
+  // ===== Start button =====
   startBtn = document.getElementById("start");
   restartBtn = document.getElementById("restart");
 
   startBtn.addEventListener("click", start);
   restartBtn.addEventListener("click", restart);
 
+  // ========================
+
   function restart() {
     location.reload();
   }
 
   function printGameOver() {
+    dotsGame.gameOverSound();
+
     setAllDotsInScreen("");
     frameBox = document.getElementById("frameBox");
     gameOver = document.getElementById("gameover");
@@ -50,18 +67,18 @@ document.addEventListener("DOMContentLoaded", event => {
   }
 
   function start() {
+    dotsGame.playMusic("play", levelGame);
+
     cleanScreen();
+
+    showCurrentLevel();
 
     timerStart();
 
-    let html = shuffleDots(levelGame);
-
-    setAllDotsInScreen(html);
-
-    selectDots();
+    initTheGame();
   }
 
-  function regenerateGame() {
+  function initTheGame() {
     setFrame();
 
     let html = shuffleDots(levelGame);
@@ -82,14 +99,20 @@ document.addEventListener("DOMContentLoaded", event => {
     });
   }
 
+  function showCurrentLevel() {
+    currentLevel = document.getElementById("currentLevel");
+    currentLevel.innerHTML = `Level ${levelGame}`;
+  }
+
   function timerStart() {
     const timerPlaceholder = document.getElementById("count_down");
+    timerPlaceholder.textContent = 10;
 
     let countDown = function() {
       if (timerPlaceholder.textContent <= 0) {
         clearInterval(myTime);
         // show score and see if the challenge is done
-        challengeGame();
+        achieveChallenge();
       } else {
         timerPlaceholder.textContent = timerPlaceholder.textContent - 1;
       }
@@ -98,37 +121,81 @@ document.addEventListener("DOMContentLoaded", event => {
     var myTime = setInterval(countDown, 1000);
   }
 
-  function challengeGame() {
+  function achieveChallenge() {
     totalScore = dotsGame.dotMatched;
 
-    if (totalScore < 2) {
-      printGameOver();
-    } else {
-      levelGame++;
-      start();
+    switch (levelGame) {
+      case 1:
+        if (totalScore < level1) {
+          printGameOver();
+        } else {
+          levelGame++;
+          alert("Well done!");
+          dotsGame.playMusic("stop");
+          start();
+        }
+        break;
+      case 2:
+        if (totalScore < level2) {
+          printGameOver();
+        } else {
+          levelGame++;
+          alert("Well done!");
+          dotsGame._music_level2("stop");
+          start();
+        }
+        break;
+      case 3:
+        if (totalScore < level3) {
+          printGameOver();
+        } else {
+          alert("Well done!");
+        }
+        break;
+      default:
+        console.error("this level does not exist");
+        printGameOver();
+        break;
     }
   }
 
   function shuffleDots(level) {
+    challengeLevel = document.getElementById("challenge");
     idxHtml = 0;
     html = "";
-    setFrame();
 
     switch (level) {
       case 1:
+        challengeLevel.innerHTML = `challenge - ${level1} matches`;
+
         dotsGame.shuffleDots(4).forEach(el => {
           if (idxHtml < 4) {
-            html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
+            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
               el.background
             }'></div>`;
           }
         });
         break;
       case 2:
+        challengeLevel.innerHTML = `challenge - ${level2} matches`;
+
         dotsGame.shuffleDots(8).forEach(el => {
-          html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
-            el.background
-          }'></div>`;
+          if (idxHtml < 8) {
+            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
+              el.background
+            }'></div>`;
+          }
+        });
+        break;
+      case 3:
+        challengeLevel.innerHTML = `challenge - ${level3} matches`;
+
+        dotsGame.shuffleDots(12).forEach(el => {
+          if (idxHtml < 12) {
+            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
+              el.background
+            }'></div>`;
+          }
         });
         break;
       default:
@@ -179,13 +246,15 @@ document.addEventListener("DOMContentLoaded", event => {
           if (
             !dotsGame.areTheSameNode(selectedItemList[0], selectedItemList[1])
           ) {
-            if (dotsGame.checkforSameColour(selectedItemList, levelGame)) {
-              alert("well done!");
+            if (dotsGame.checkforSameColour(selectedItemList)) {
+              dotsGame.positiveBeep();
 
-              regenerateGame();
+              initTheGame();
+            } else {
+              dotsGame.negativeBeep();
             }
           } else {
-            alert("ey! it's the same dot!");
+            dotsGame.negativeBeep();
           }
           selectedItemList = [];
         }

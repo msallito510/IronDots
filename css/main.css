@@ -86,6 +86,28 @@ body:before {
   background: #3964a5;
 }
 
+.dotGameContent {
+  position: absolute;
+  margin-top: 15%;
+  width: 225px;
+  right: 260px;
+}
+
+.dotGameContent div:hover,
+.dotGameContent div:active {
+  animation: dotGameContent 0.5s;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.dotGameContent div:active {
+  box-shadow: 0 0 0 5px #df4a42;
+}
+
+@keyframes dotGameContent {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
 
 .menu>h3 {
   font-size: 20px;
@@ -170,14 +192,6 @@ body:before {
   animation: animatedgradient 3s ease alternate infinite;
   background-size: 300% 300%;
 }
-
-.dotGameContent {
-  position: absolute;
-  margin-top: 15%;
-  width: 225px;
-  right: 260px;
-}
-
 
 @keyframes animatedgradient {
   0% {
