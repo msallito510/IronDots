@@ -1,0 +1,220 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: 'Press Start 2P';
+  background: #130d28;
+}
+
+body:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+  opacity: 0.2;
+  z-index: 100;
+  content: "";
+  pointer-events: none;
+}
+
+/* ####### start - landing page section ####### */
+.dots-container {
+  position: relative;
+  padding-top: 100px;
+  text-align: center;
+  font-size: 50px;
+  padding: 50px * 4;
+}
+
+.dots-container h1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 90px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 5px;
+  text-shadow: -2px 0 0 #fdff2a,
+    -4px 0 0 #df4a42,
+    2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
+
+  animation: blink 1s steps(4, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+.dotClass {
+  width: 1em;
+  height: 1em;
+  margin: 0 .2em;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.dotClass-0 {
+  background: #6ba539;
+}
+
+.dotClass-1 {
+  background: #a53939;
+}
+
+.dotClass-2 {
+  background: #a5a539;
+}
+
+.dotClass-3 {
+  background: #3964a5;
+}
+
+.dotGameContent {
+  position: absolute;
+  margin-top: 15%;
+  width: 225px;
+  right: 260px;
+}
+
+.dotGameContent div:hover,
+.dotGameContent div:active {
+  animation: dotGameContent 0.5s;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.dotGameContent div:active {
+  box-shadow: 0 0 0 5px #df4a42;
+}
+
+@keyframes dotGameContent {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.menu>h3 {
+  font-size: 20px;
+  color: rgb(147, 154, 255);
+  text-shadow: 2px 2px 0 rgb(47, 61, 255);
+}
+
+.menu .menuOptions>h3 {
+  position: relative;
+  left: 25%;
+  margin: 15px;
+  width: 50%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menuOptions h3:hover {
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+}
+
+.retroStyle {
+  font-family: 'Press Start 2P';
+  color: rgb(192, 192, 192);
+  text-shadow: 2px 2px 0 rgb(192, 11, 11);
+  background: #130d28;
+}
+
+.startBttn {
+  position: relative;
+  left: 1%;
+  font-size: 30px;
+}
+
+.startBttn:hover {
+  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+}
+
+.gameover h1 {
+  position: absolute;
+  bottom: 50px;
+}
+
+#frameBox {
+  position: absolute;
+  top: 15px;
+  left: 300px;
+  width: 800px;
+  height: 600px;
+  color: white;
+  font-family: 'Raleway';
+  font-size: 2.5rem;
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  font-size: 13px;
+  margin: 15px;
+  width: 240px;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #130d28;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.footer p {
+  position: absolute;
+  bottom: 10px;
+  left: 600px;
+  font-size: 10px;
+  color: rgb(226, 179, 24);
+  text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
+    2px 2px 0 rgb(151, 109, 19);
+}
+
+/* ####### End - landing page section ####### */
