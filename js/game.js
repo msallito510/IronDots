@@ -85,7 +85,7 @@ class Game {
   }
 
   _music_level1(command) {
-    const audio = new Audio("/audio/arcade-music-loop_1.wav");
+    const audio = new Audio("./audio/arcade-music-loop_1.wav");
 
     switch (command) {
       case "play":
@@ -102,7 +102,7 @@ class Game {
   }
 
   _music_level2(command) {
-    const audio = new Audio("/audio/arcade-music-loop_2.wav");
+    const audio = new Audio("./audio/arcade-music-loop_2.wav");
 
     switch (command) {
       case "play":
@@ -119,34 +119,18 @@ class Game {
   }
 
   positiveBeep() {
-    new Audio("/audio/positive-sound.wav").play();
+    new Audio("./audio/positive-sound.wav").play();
   }
 
   negativeBeep() {
-    new Audio("/audio/negative-sound.wav").play();
+    new Audio("./audio/negative-sound.wav").play();
   }
 
   winSound() {
-    new Audio("/audio/win-sound.wav").play();
+    new Audio("./audio/win-sound.wav").play();
   }
 
   gameOverSound() {
-    new Audio("/audio/game-over.wav").play();
-  }
-
-  // -- > ignored
-  checkAreEquals(arrDots) {
-    arrDots.array.forEach(function(item, index) {
-      // Current => item.name
-      let sameColour;
-      if (index > 0) {
-        sameColour = arrDots[index - 1].name; // one before
-      }
-      if (index < arrDots.length - 1) {
-        sameColour = arrDots[index + 1].name; //Next
-      }
-    });
-
-    return sameColour;
+    new Audio("./audio/game-over.wav").play();
   }
 }

@@ -129,9 +129,10 @@ document.addEventListener("DOMContentLoaded", event => {
         if (totalScore < level1) {
           printGameOver();
         } else {
+          dotsGame.winSound();
           levelGame++;
           alert("Well done!");
-          dotsGame.playMusic("stop");
+
           start();
         }
         break;
