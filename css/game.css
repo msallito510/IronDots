@@ -2,10 +2,10 @@
 
 #frameBox {
   position: absolute;
-  top: 15px;
-  left: 300px;
-  width: 800px;
-  height: 600px;
+  top: 2rem;
+  left: 33rem;
+  width: 51rem;
+  height: 36rem;
   color: white;
   font-family: "Raleway";
   font-size: 2.5rem;
@@ -23,9 +23,10 @@
 #challenge {
   position: absolute;
   left: 28rem;
-  top: -8rem;
+  top: -1rem;
   font-size: 1.5rem;
   width: 33rem;
+  z-index: 1;
 }
 
 .gradient-border {

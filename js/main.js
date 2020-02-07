@@ -107,9 +107,12 @@ document.addEventListener("DOMContentLoaded", event => {
 
     frameClose();
 
+    challengeScore = document.getElementById("challenge");
+
     instructions = document.getElementById("instructions");
 
     instructions.style = "display: block";
+    challengeScore.style = "display: none";
   }
 
   function referencesInfo() {
@@ -119,9 +122,12 @@ document.addEventListener("DOMContentLoaded", event => {
 
     frameClose();
 
+    challengeScore = document.getElementById("challenge");
+
     references = document.getElementById("references");
 
     references.style = "display: block";
+    challengeScore.style = "display: none";
   }
 
   function frameClose() {
