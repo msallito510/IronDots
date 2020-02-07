@@ -140,7 +140,8 @@
   position: absolute;
   display: block;
   height: 20rem;
-  top: 11rem;
+  top: 16rem;
+  left: 3rem;
 }
 
 #welldone-tooltip {
@@ -151,8 +152,8 @@
   width: 130px;
   border-radius: 5px;
   position: absolute;
-  left: 2rem;
-  top: 8rem;
+  left: 8rem;
+  top: 11rem;
   transform: translateX(-50%);
 }
 
@@ -167,6 +168,50 @@
   bottom: -19px;
   left: 15%;
 }
+/* ===== end eleven section ===== */
+/* ===== demogorgon section ===== */
+#demogorgon-img img {
+  position: absolute;
+  right: -13rem;
+  z-index: -1;
+  height: 25rem;
+  top: 0;
+}
+
+#demogorgon-msg img {
+  position: absolute;
+  right: 0rem;
+  z-index: -1;
+  height: 27rem;
+  top: 13rem;
+}
+
+#gameover-tooltip {
+  color: white;
+  padding: 9px;
+  font-size: 1rem;
+  background: slateblue;
+  width: 151px;
+  border-radius: 5px;
+  position: absolute;
+  right: 1rem;
+  top: 11rem;
+  transform: translateX(-50%);
+}
+
+#gameover-tooltip:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid slateblue;
+  bottom: -19px;
+  right: 2rem;
+}
+/* end demogorgon section */
+
 #close {
   content: "x";
   position: absolute;
@@ -183,5 +228,3 @@
   font-size: 1.9rem;
   list-style: none;
 }
-
-

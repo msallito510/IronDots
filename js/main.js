@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", event => {
   references.addEventListener("click", referencesInfo);
   closeX.addEventListener("click", restart);
 
-  // ========================
+  // ===== end listener =====
 
   function restart() {
     location.reload();
@@ -64,11 +64,15 @@ document.addEventListener("DOMContentLoaded", event => {
     displayDotMatched = document.getElementById("player_score_GameOver");
     restart = document.getElementById("restart");
     challengeInfo = document.getElementById("challenge");
+    showDemogorgon = document.getElementById("demogorgon-msg");
+    showDemogorgonMsg = document.getElementById("gameover-tooltip");
 
     frameBox.style = "background: transparent";
     gameOver.style = "display: block";
     restart.style = "diplay: block";
     challengeInfo.style = "display: none";
+    showDemogorgon.style = "diplay: block";
+    showDemogorgonMsg.style = "diplay: block";
     displayDotMatched.textContent = dotsGame.dotMatched;
 
     dotsGame.playMusic("stop", levelGame);
@@ -272,11 +276,13 @@ document.addEventListener("DOMContentLoaded", event => {
     dotsInit = document.getElementById("dots");
     menu = document.getElementById("menu");
     eleven = document.getElementById("eleven-img");
+    demogorgon = document.getElementById("demogorgon-img");
 
     titleDot.style = "display: none";
     dotsInit.style = "display: none";
     menu.style = "display: none";
     eleven.style = "display: none";
+    demogorgon.style = "display: none";
   }
 
   function setFrame() {

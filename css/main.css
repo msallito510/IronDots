@@ -35,6 +35,7 @@ body:before {
 .menu {
   position: relative;
   left: -2rem;
+  top: 2rem;
 }
 
 .menu > h3 {
@@ -67,6 +68,7 @@ body:before {
   color: rgb(192, 192, 192);
   text-shadow: 2px 2px 0 rgb(192, 11, 11);
   background: #000;
+  height: 3rem;
 }
 
 .startBttn {
@@ -252,8 +254,8 @@ body:before {
 
 .footer p {
   position: absolute;
-  bottom: 10px;
-  left: 600px;
+  bottom: 0;
+  left: 34rem;
   font-size: 10px;
   color: rgb(226, 179, 24);
   text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
