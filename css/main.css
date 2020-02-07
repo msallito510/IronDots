@@ -156,7 +156,7 @@ body:before {
 }
 
 .st-bound-full {
-  width: 98%;
+  width: 38rem;
   margin: auto;
   margin-bottom: -0.8rem;
   max-width: 612px;
@@ -169,15 +169,15 @@ body:before {
 
 .st-bound-left {
   float: left;
-  width: 100px;
+  width: 6rem;
   position: relative;
-  left: 30px;
+  left: 2rem;
   top: 1.7rem;
 }
 
 .st-bound-right {
   float: right;
-  width: 119px;
+  width: 7.5rem;
   left: 0.8rem;
   position: relative;
   top: 1.6rem;

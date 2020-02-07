@@ -4,13 +4,15 @@ class Game {
     this.dotMatched = 0;
   }
 
-  shuffleDots(levelGame) {
-    let currentIndex = levelGame;
+  shuffleDots(totalDots) {
+    let currentIndex = totalDots;
     let randomIndex = undefined;
+    let randomPos = undefined;
     let tmp = undefined;
     let counterPair = 1;
 
     while (currentIndex > 0) {
+      randomPos = Math.floor(Math.random() * totalDots);
       randomIndex = Math.floor(Math.random() * 27);
       currentIndex -= 1;
 
@@ -21,7 +23,7 @@ class Game {
       ) {
         tmp = randomIndex;
         this.dots[currentIndex] = this.dots[randomIndex];
-        this.dots[currentIndex - 1] = this.dots[randomIndex];
+        this.dots[randomPos] = this.dots[randomIndex];
         counterPair -= 1;
         currentIndex -= 1;
       } else if (randomIndex !== tmp) {
