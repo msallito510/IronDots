@@ -1,25 +1,158 @@
-<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./css/test.css" />
+    <title>Stranger Dots</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="/css/test.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js">
-  <title>Document</title>
-</head>
+  <body>
+    <div class="dots-container">
+      <div id="titleDot" class="st">
+        <div class="st-top">
+          <div class="st-bound st-bound-full"></div>
+          <p>
+            <span class="st-drop st-stranger-s">s</span>
+            <span class="st-stranger-t">t</span>
+            <span class="st-stranger-r">r</span>
+            <span class="st-stranger-a">a</span>
+            <span class="st-stranger-n">n</span>
+            <span class="st-stranger-g">g</span>
+            <span class="st-stranger-e">e</span>
+            <span class="st-drop st-stranger-r-2">r</span>
+          </p>
+          <div class="st-bound st-bound-mini st-bound-left"></div>
+          <div class="st-bound st-bound-mini st-bound-right"></div>
+        </div>
 
-<body>
-  <ul class="lightrope">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+        <div class="st-bottom">
+          <p>
+            <span class="st-dots-d">d</span>
+            <span class="st-dots-o">o</span>
+            <span class="st-dots-t">t</span>
+            <span class="st-dots-s">s</span>
+          </p>
+        </div>
+      </div>
+      <div id="eleven-img">
+        <img src="./images/eleven.png" alt="eleven image" />
+      </div>
+      <div id="audio"></div>
+      <div class="gradient-border" id="frameBox" style="display: none">
+        <div>
+          <p id="close" style="display: none">x</p>
+        </div>
+        <p id="instructions" style="display: none">
+          The purpose of the game is to match two dots or lights that have the
+          same colour and reach the highest possible score against the clock.
+          The colours appears on the screen in horizontal or vertical format.
+          The player can use the mouse to select the first point and then select
+          the left points. The game ends when time runs out.
+        </p>
+        <div id="references" style="display: none">
+          <ul>
+            <li><u>Music:</u></li>
+            <li>
+              - Stranger Things Bass by Dokfraktal - www.looperman.com
+            </li>
+            <li>
+              - Arcade Music Loop by joshuaempyre - www.freesound.org
+            </li>
+            <li>
+              - 80s Vibe by FoolBoyMedia - www.freesound.org
+            </li>
+            <li><u>Sounds:</u></li>
+            <li>
+              - Start Beep by ACPascal - www.freesound.org
+            </li>
+            <li>
+              - Beep 05 Negative by PaulMorek - www.freesound.org
+            </li>
+            <li>
+              - SW001_8-Bit-Games_Music_Element_Fail_01_Arp by shapingwaves -
+              www.freesound.org
+            </li>
+          </ul>
+        </div>
+      </div>
 
-  </ul>
-  <script src="js/test.js"></script>
-</body>
+      <div class="gameInfo retroStyle">
+        <div class="score" id="score" style="display: none">
+          <h2 id="currentLevel"></h2>
+          <h6 id="challenge">challenge - 5 matches</h6>
+          <p>Score: <span id="player_score">0</span></p>
+        </div>
+        <div class="countDown" id="countDown" style="display: none">
+          <p>Time: <span id="count_down">10</span></p>
+        </div>
+        <div>
+          <button
+            class="restartBtn retroStyle"
+            id="restart"
+            style="display: none"
+          >
+            Restart
+          </button>
+        </div>
+        <div id="welldone-tooltip" style="display: none">
+          Well done!!
+        </div>
+        <div id="welldone-msg" style="display: none">
+          <img src="./images/eleven_ST8bits.jpg" alt="well done!" />
+        </div>
+      </div>
 
+      <!-- lights -->
+      <div id="dots" class="gameInfo retroStyle">
+        <div class="lightrope">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <div id="menu" class="menu">
+        <h3>PUSH START BUTTON</h3>
+        <div class="menuOptions retroStyle">
+          <h3 id="instruction_lnk">Instructions</h3>
+          <h3 id="reference_lnk">References</h3>
+          <button id="start" class="startBttn retroStyle">START</button>
+        </div>
+      </div>
+      <div id="gameover" class="gameover" style="display: none">
+        <h1>Game Over</h1>
+        <p>Total Score: <span id="player_score_GameOver">0</span></p>
+        <div id="imageGameOver" style="display: none"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>msallito - Ironhack - 2020</p>
+    </footer>
+    <!-- <script src="js/test.js"></script> -->
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

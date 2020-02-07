@@ -1,16 +1,333 @@
+html,
 body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  position: relative;
+  font-family: "Press Start 2P";
   background: #000;
 }
+
+body:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
+  opacity: 0.2;
+  z-index: 100;
+  content: "";
+  pointer-events: none;
+}
+
+/* ===== game frame ===== */
+
+#frameBox {
+  position: absolute;
+  top: 15px;
+  left: 300px;
+  width: 800px;
+  height: 600px;
+  color: white;
+  font-family: "Raleway";
+  font-size: 2.5rem;
+}
+
+.gameInfo {
+  left: 0%;
+  top: 0rem;
+  position: relative;
+  font-size: 13px;
+  margin: 15px;
+  width: 240px;
+}
+
+#challenge {
+  position: absolute;
+  left: 28rem;
+  top: -8rem;
+  font-size: 1.5rem;
+  width: 33rem;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #000;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== end - game frame ===== */
+/* ===== start - landing page section ===== */
+.dots-container {
+  position: relative;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 50px;
+  padding: 50px * 4;
+}
+
+.dots-container h1 {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 90px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: 5px;
+  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe,
+    4px 0 0 #4405fc;
+
+  animation: blink 1s steps(4, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ===== start initPage ===== */
+.st {
+  width: 625px;
+  margin: 6rem auto 3rem auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-family: "ITC Benguiat W01";
+  font-weight: 800;
+  color: #1c0502;
+  text-shadow: -0.05rem -0.05rem 10px #ed2b12, 0.05rem -0.05rem 1px #ed2b12,
+    -0.05rem 0.05rem 1px #ed2b12, 0.05rem 0.05rem 1px #ed2b12, 0 0 15px #630100,
+    0 0 20px #450100;
+  letter-spacing: -2px;
+}
+
+.st p {
+  display: inline-block;
+  margin: 0;
+}
+
+.st-bound {
+  box-shadow: -0.05rem -0.05rem 2px #ed2b12, 0.05rem -0.05rem 2px #ed2b12,
+    -0.05rem 0.05rem 2px #ed2b12, 0.05rem 0.05rem 2px #ed2b12;
+  height: 5px;
+}
+
+.st-bound-full {
+  width: 98%;
+  margin: auto;
+  margin-bottom: -0.8rem;
+  max-width: 612px;
+  margin-left: 25px;
+}
+
+.st-bound-mini {
+  margin-top: 0.5rem;
+}
+
+.st-bound-left {
+  float: left;
+  width: 100px;
+  position: relative;
+  left: 30px;
+  top: 1.7rem;
+}
+
+.st-bound-right {
+  float: right;
+  width: 119px;
+  left: 0.8rem;
+  position: relative;
+  top: 1.6rem;
+}
+
+.st-bottom {
+  clear: both;
+  top: -1.8rem;
+  position: relative;
+  left: 1rem;
+  letter-spacing: -9px;
+  font-size: 100px;
+}
+
+.st-drop {
+  line-height: 0;
+  position: relative;
+  top: 3.1rem;
+}
+
+.st-stranger-s {
+  font-size: 10.5rem;
+  letter-spacing: -30px;
+}
+
+.st-stranger-t {
+  letter-spacing: -22px;
+}
+
+.st-stranger-r {
+  letter-spacing: -22px;
+}
+
+.st-stranger-a {
+  letter-spacing: -22px;
+}
+
+.st-stranger-n {
+  letter-spacing: -22px;
+}
+
+.st-stranger-g {
+  letter-spacing: -22px;
+}
+
+.st-stranger-e {
+  letter-spacing: -122px;
+}
+
+.st-stranger-r-2 {
+  font-size: 10.5rem;
+  right: -2.3rem;
+}
+
+.st-dots-d {
+  font-size: 104%;
+  letter-spacing: 2px;
+}
+
+.st-dots-o {
+  letter-spacing: -5px;
+}
+
+.st-dots-t {
+  letter-spacing: -3px;
+}
+
+.st-dots-s {
+  letter-spacing: -1px;
+}
+
+/* ===== end initPage ===== */
+
+/* ===== start game dots ===== 2*/
+
+.dotClass {
+  position: relative;
+  width: 1em;
+  height: 2em;
+  margin: 0 0.2em;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.dotClass:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 40px;
+  height: 22px;
+  border-radius: 3px;
+  top: -3px;
+  left: 0;
+}
+
+.dotClass:after {
+  content: "";
+  top: -3px;
+  left: 2rem;
+  position: absolute;
+  width: 40px;
+  height: 17px;
+  border-bottom: solid #222 2px;
+  border-radius: 50%;
+}
+
+/* content */
+.dotGameContent {
+  position: absolute;
+  margin-top: 15%;
+  width: 225px;
+  right: 260px;
+}
+
+.dotGameContent div:hover,
+.dotGameContent div:active {
+  animation: dotGameContent 0.5s;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.dotGameContent div:active {
+  box-shadow: 0 0 0 5px #df4a42;
+}
+/* ===== end game dots ===== */
+
+/* ===== start lights section ===== */
 
 .lightrope {
   display: flex;
   align-items: center;
   justify-content: space-around;
   z-index: 1;
-  width: 260px;
+  width: 1500px;
 }
 
-li {
+.dot {
   position: relative;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
@@ -24,34 +341,34 @@ li {
   margin: 40px/2;
   display: inline-block;
   background: rgba(0, 247, 165, 1);
-  box-shadow: 0px 78px/6 42px*2 3px rgba(0, 247, 165, 1);
+  box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 247, 165, 1);
   animation-name: flash-1;
   animation-duration: 2s;
 }
 
-li:nth-child(2n+1) {
+.dot:nth-child(2n + 1) {
   background: rgba(0, 255, 255, 1);
-  box-shadow: 0px 78px/6 42px*2 3px rgba(0, 255, 255, 0.5);
+  box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 255, 255, 0.5);
   animation-name: flash-2;
   animation-duration: 0.4s;
 }
 
-li:nth-child(4n+2) {
+.dot:nth-child(4n + 2) {
   background: rgba(247, 0, 148, 1);
-  box-shadow: 0px 78px/6 42px*2 3px rgba(247, 0, 148, 1);
+  box-shadow: 0px 78px/6 42px * 2 3px rgba(247, 0, 148, 1);
   animation-name: flash-3;
   animation-duration: 1.1s;
 }
 
-li:nth-child(odd) {
+.dot:nth-child(odd) {
   animation-duration: 1.8s;
 }
 
-li:nth-child(3n+1) {
+.dot:nth-child(3n + 1) {
   animation-duration: 1.4s;
 }
 
-li:before {
+.dot:before {
   content: "";
   position: absolute;
   background: #222;
@@ -62,7 +379,7 @@ li:before {
   left: 1px;
 }
 
-li:after {
+.dot:after {
   content: "";
   top: 2px;
   left: 40px;
@@ -73,54 +390,180 @@ li:after {
   border-radius: 50%;
 }
 
-li:last-child:after {
+.dot:last-child:after {
   content: none;
 }
 
-li:first-child {
+.dot:first-child {
   margin-left: -40px;
 }
 
-
-
 @keyframes flash-1 {
-
   0%,
   100% {
     background: rgba(0, 247, 165, 1);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(0, 247, 165, 1);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 247, 165, 1);
   }
 
   50% {
     background: rgba(0, 247, 165, 0.4);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(0, 247, 165, 0.2);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 247, 165, 0.2);
   }
 }
 
 @keyframes flash-2 {
-
   0%,
   100% {
     background: rgba(0, 255, 255, 1);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(0, 255, 255, 1);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 255, 255, 1);
   }
 
   50% {
     background: rgba(0, 255, 255, 0.4);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(0, 255, 255, 0.2);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(0, 255, 255, 0.2);
   }
 }
 
 @keyframes flash-3 {
-
   0%,
   100% {
     background: rgba(247, 0, 148, 1);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(247, 0, 148, 1);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(247, 0, 148, 1);
   }
 
   50% {
     background: rgba(247, 0, 148, 0.4);
-    box-shadow: 0px 78px/6 42px*2 3px rgba(247, 0, 148, 0.2);
+    box-shadow: 0px 78px/6 42px * 2 3px rgba(247, 0, 148, 0.2);
   }
+}
+
+/* ===== end lights section ===== */
+
+/* ===== menu section ===== */
+.menu {
+  position: relative;
+  left: -2rem;
+}
+
+.menu > h3 {
+  font-family: "Press Start 2P";
+  font-size: 20px;
+  color: rgb(147, 154, 255);
+  text-shadow: 2px 2px 0 rgb(47, 61, 255);
+}
+
+.menu .menuOptions > h3 {
+  position: relative;
+  left: 21rem;
+  margin: 15px;
+  width: 50%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menuOptions h3:hover {
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
+}
+
+.retroStyle {
+  font-family: "Press Start 2P";
+  color: rgb(192, 192, 192);
+  text-shadow: 2px 2px 0 rgb(192, 11, 11);
+  background: #000;
+}
+
+.startBttn {
+  position: relative;
+  left: 0rem;
+  font-size: 30px;
+}
+
+.startBttn:hover {
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
+}
+
+.gameover h1 {
+  position: absolute;
+  bottom: 50px;
+}
+
+/* ===== end menu section ===== */
+/* ===== eleven section ===== */
+
+#eleven-img img {
+  width: 24rem;
+  top: 0rem;
+  position: absolute;
+  left: 0rem;
+  z-index: -1;
+}
+
+#welldone-msg img {
+  position: absolute;
+  display: block;
+  height: 20rem;
+  top: 11rem;
+}
+
+#welldone-tooltip {
+  color: white;
+  padding: 9px;
+  font-size: 1rem;
+  background: slateblue;
+  width: 130px;
+  border-radius: 5px;
+  position: absolute;
+  left: 2rem;
+  top: 8rem;
+  transform: translateX(-50%);
+}
+
+#welldone-tooltip:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid slateblue;
+  bottom: -19px;
+  left: 15%;
+}
+#close {
+  content: "x";
+  position: absolute;
+  top: -0.2rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+#references ul {
+  font-size: 1.9rem;
+  list-style: none;
+}
+
+/* ===== footer section ===== */
+
+.footer p {
+  position: absolute;
+  bottom: 10px;
+  left: 600px;
+  font-size: 10px;
+  color: rgb(226, 179, 24);
+  text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
+    2px 2px 0 rgb(151, 109, 19);
 }

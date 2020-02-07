@@ -68,15 +68,16 @@ class Game {
   playMusic(command, level) {
     switch (level) {
       case 1:
-        this._music_level1(command);
+        let audio_1 = new Audio("./audio/dokfraktal-stranger-bass.wav");
+        this._setMusic(command, audio_1);
         break;
       case 2:
-        this._music_level1("stop");
-        this._music_level2(command);
+        let audio_2 = new Audio("./audio/arcade-music-loop_1.wav");
+        this._setMusic(command, audio_2);
         break;
       case 3:
-        this._music_level2("stop");
-        this._music_level1(command);
+        let audio_3 = new Audio("./audio/arcade-music-loop_2.wav");
+        this._setMusic(command, audio_3);
         break;
       default:
         console.error("option does not exist");
@@ -84,26 +85,7 @@ class Game {
     }
   }
 
-  _music_level1(command) {
-    const audio = new Audio("./audio/arcade-music-loop_1.wav");
-
-    switch (command) {
-      case "play":
-        audio.loop = true;
-        audio.play();
-        break;
-      case "stop":
-        audio.pause();
-        break;
-      default:
-        console.error("option does not exist");
-        break;
-    }
-  }
-
-  _music_level2(command) {
-    const audio = new Audio("./audio/arcade-music-loop_2.wav");
-
+  _setMusic(command, audio) {
     switch (command) {
       case "play":
         audio.loop = true;
@@ -132,5 +114,11 @@ class Game {
 
   gameOverSound() {
     new Audio("./audio/game-over.wav").play();
+  }
+
+  wellDoneImage() {
+    const elevenImg = new Image();
+    elevenImg.src = "/images/eleven_ST8bits.jpg";
+    return elevenImg;
   }
 }

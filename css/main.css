@@ -3,12 +3,13 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
 }
 
 body {
   position: relative;
   font-family: 'Press Start 2P';
-  background: #130d28;
+  background: #000;
 }
 
 body:before {
