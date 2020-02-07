@@ -1,10 +1,10 @@
-# Welcome to IronDots!
+# Welcome to StrangerDots!
 
-The purpose of the game is to match two or more points that have the same color and reach the highest possible score against the clock.
+The purpose of the game is to match two or more points that have the same colour and reach the highest possible score against the clock.
 The colors appear on the screen in horizontal or vertical format.
-The game screen is a combination of points with different colors where the player has to match selecting the points with the same colors.
-The player can use the mouse to select the first point and then select the left points.
-The game ends when time runs out.
+The screen is a combination of points with different colours where the player has to match one point with another point of the same colour.
+The player can use the mouse to select the first point and then the other point.
+The game ends when the time is over.
 
 ## MVP
 
@@ -20,23 +20,22 @@ Html5 DOM manipulation - Vanilla and Javascript
 - _Game Screen_
   - DOM
 - _Game Over Screen_
-
   - Play again button
   - Go to start screen button
 
 ### Game
 
-- Create a line with four dots that have at least two dots with the same colour and the rest with different colours. The colours are randomly selected and, by default, there are two or more dots with a different colour.
-- Create a player on line.
-- Match the dots which have the same colour.
-  - Kip clicking on a dot and slide selecting another dot in order to match it.
-  - The selected dots disappear from the screen appears new dots replacing the matched dots.
-  - The score is updated by increasing one point.
+- Create a line with four dots that have at least two dots of the same colour and the rest with different colours. The colours are randomly selected and, by default, there are two or more dots with a different colour.
+- Create a player online.
+- Match the dots that have the same colour.
+  - Keep clicking on a dot and slide selecting another dot in order to match it.
+  - The selected dots disappear from the screen and two new dots will replace them.
+  - The score is updated by adding one point.
 - Match the dots which don't have the same colour.
   _ The selected dots are still in the screen.
   _ The score is not updated.
 - Check time out game
-- If time out -> Game Over -> Show Game Over Screen -> Show Score.
+- If time over -> Game Over -> Show Game Over Screen -> Show Score.
 
 ---
 
@@ -46,7 +45,7 @@ Html5 DOM manipulation - Vanilla and Javascript
 
 ### Score
 
-- Run counter down and store score on game over
+- Run count down and store score on game over
 
 ### High score
 
@@ -60,18 +59,18 @@ Html5 DOM manipulation - Vanilla and Javascript
 - Add music on and off button to Start screen.
 - Add sound every match.
 
-### Player colors
+### Player colours
 
-- Create Color Screen
-  - Let user choose color of player with color buttons
-- Add Choose color button to Start Screen
-- Change color of player when playing
+- Create Colour Screen
+- Let user choose colour of player with colour buttons
+- Add "Choose colour" button to Start Screen
+- Change colour of player when playing
 
 ### Levels
 
 - Check score and increase level.
-  _ first level is a line with four dots (matrix 1 x 4).
-  _ second level is added a new row with four dots ( matrix 2 x 4).
+  _ First level is a line with four dots (matrix 1 x 4).
+  _ Second level is added, a new row with four dots ( matrix 2 x 4).
 
 ---
 

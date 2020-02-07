@@ -2,15 +2,19 @@ class Game {
   constructor(dots) {
     this.dots = dots;
     this.dotMatched = 0;
+    this.audioIsOn = false;
+    this.currentAudio = undefined;
   }
 
-  shuffleDots(levelGame) {
-    let currentIndex = levelGame;
+  shuffleDots(totalDots) {
+    let currentIndex = totalDots;
     let randomIndex = undefined;
+    let randomPos = undefined;
     let tmp = undefined;
     let counterPair = 1;
 
     while (currentIndex > 0) {
+      randomPos = Math.floor(Math.random() * totalDots);
       randomIndex = Math.floor(Math.random() * 27);
       currentIndex -= 1;
 
@@ -66,18 +70,21 @@ class Game {
   }
 
   playMusic(command, level) {
-    switch (level) {
-      case 1:
-        let audio_1 = new Audio("./audio/dokfraktal-stranger-bass.wav");
-        this._setMusic(command, audio_1);
+    if (this.audioIsOn === false) {
+      this._getAudio(level);
+    }
+
+    switch (command) {
+      case "play":
+        this.currentAudio.loop = true;
+        this.currentAudio.play();
+        this.audioIsOn = true;
         break;
-      case 2:
-        let audio_2 = new Audio("./audio/arcade-music-loop_1.wav");
-        this._setMusic(command, audio_2);
-        break;
-      case 3:
-        let audio_3 = new Audio("./audio/arcade-music-loop_2.wav");
-        this._setMusic(command, audio_3);
+      case "stop":
+        this.currentAudio.loop = false;
+        this.currentAudio.pause();
+        this.currentAudio = undefined;
+        this.audioIsOn = false;
         break;
       default:
         console.error("option does not exist");
@@ -85,14 +92,16 @@ class Game {
     }
   }
 
-  _setMusic(command, audio) {
-    switch (command) {
-      case "play":
-        audio.loop = true;
-        audio.play();
+  _getAudio(level) {
+    switch (level) {
+      case 1:
+        this.currentAudio = new Audio("./audio/dokfraktal-stranger-bass.wav");
         break;
-      case "stop":
-        audio.pause();
+      case 2:
+        this.currentAudio = new Audio("./audio/arcade-music-loop_1.wav");
+        break;
+      case 3:
+        this.currentAudio = new Audio("./audio/arcade-music-loop_2.wav");
         break;
       default:
         console.error("option does not exist");

@@ -162,8 +162,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
   function achieveChallenge() {
     totalScore = dotsGame.dotMatched;
-    // welldone11 = document.getElementById("welldone-msg");
-    // tooltip = document.getElementById("welldone-tooltip");
 
     switch (levelGame) {
       case 1:
