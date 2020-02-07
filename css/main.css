@@ -8,7 +8,7 @@ body {
 
 body {
   position: relative;
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
   background: #000;
 }
 
@@ -19,17 +19,82 @@ body:before {
   bottom: 0;
   left: 0;
   margin: auto;
-  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
   opacity: 0.2;
   z-index: 100;
   content: "";
   pointer-events: none;
 }
 
-/* ####### start - landing page section ####### */
+/* ===== menu section ===== */
+.menu {
+  position: relative;
+  left: -2rem;
+}
+
+.menu > h3 {
+  font-family: "Press Start 2P";
+  font-size: 20px;
+  color: rgb(147, 154, 255);
+  text-shadow: 2px 2px 0 rgb(47, 61, 255);
+}
+
+.menu .menuOptions > h3 {
+  position: relative;
+  left: 21rem;
+  margin: 15px;
+  width: 50%;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.menuOptions h3:hover {
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
+}
+
+.retroStyle {
+  font-family: "Press Start 2P";
+  color: rgb(192, 192, 192);
+  text-shadow: 2px 2px 0 rgb(192, 11, 11);
+  background: #000;
+}
+
+.startBttn {
+  position: relative;
+  left: 0rem;
+  font-size: 30px;
+}
+
+.startBttn:hover {
+  background: repeating-linear-gradient(
+    #0d122b,
+    #0d122b 2px,
+    #565b73 2px,
+    #565b73 4px
+  );
+}
+
+.gameover h1 {
+  position: absolute;
+  bottom: 50px;
+}
+
+/* ===== end menu section ===== */
+
+/* ===== start - landing page section ===== */
 .dots-container {
   position: relative;
-  padding-top: 100px;
+  padding-top: 15px;
   text-align: center;
   font-size: 50px;
   padding: 50px * 4;
@@ -49,9 +114,7 @@ body:before {
   font-size: 40px;
   line-height: 40px;
   letter-spacing: 5px;
-  text-shadow: -2px 0 0 #fdff2a,
-    -4px 0 0 #df4a42,
-    2px 0 0 #91fcfe,
+  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe,
     4px 0 0 #4405fc;
 
   animation: blink 1s steps(4, start) infinite;
@@ -63,150 +126,129 @@ body:before {
   }
 }
 
-.dotClass {
-  width: 1em;
-  height: 1em;
-  margin: 0 .2em;
+/* ===== start initPage ===== */
+.st {
+  width: 625px;
+  margin: 6rem auto 3rem auto;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-family: "ITC Benguiat W01";
+  font-weight: 800;
+  color: #1c0502;
+  text-shadow: -0.05rem -0.05rem 10px #ed2b12, 0.05rem -0.05rem 1px #ed2b12,
+    -0.05rem 0.05rem 1px #ed2b12, 0.05rem 0.05rem 1px #ed2b12, 0 0 15px #630100,
+    0 0 20px #450100;
+  letter-spacing: -2px;
+}
+
+.st p {
   display: inline-block;
-  border-radius: 50%;
+  margin: 0;
 }
 
-.dotClass-0 {
-  background: #6ba539;
+.st-bound {
+  box-shadow: -0.05rem -0.05rem 2px #ed2b12, 0.05rem -0.05rem 2px #ed2b12,
+    -0.05rem 0.05rem 2px #ed2b12, 0.05rem 0.05rem 2px #ed2b12;
+  height: 5px;
 }
 
-.dotClass-1 {
-  background: #a53939;
+.st-bound-full {
+  width: 98%;
+  margin: auto;
+  margin-bottom: -0.8rem;
+  max-width: 612px;
+  margin-left: 25px;
 }
 
-.dotClass-2 {
-  background: #a5a539;
+.st-bound-mini {
+  margin-top: 0.5rem;
 }
 
-.dotClass-3 {
-  background: #3964a5;
-}
-
-.dotGameContent {
-  position: absolute;
-  margin-top: 15%;
-  width: 225px;
-  right: 260px;
-}
-
-.dotGameContent div:hover,
-.dotGameContent div:active {
-  animation: dotGameContent 0.5s;
-  box-shadow: 0 0 0 2px #fff;
-}
-
-.dotGameContent div:active {
-  box-shadow: 0 0 0 5px #df4a42;
-}
-
-@keyframes dotGameContent {
-  0% {
-    box-shadow: 0 0 0 0 var(--hover);
-  }
-}
-
-.menu>h3 {
-  font-size: 20px;
-  color: rgb(147, 154, 255);
-  text-shadow: 2px 2px 0 rgb(47, 61, 255);
-}
-
-.menu .menuOptions>h3 {
+.st-bound-left {
+  float: left;
+  width: 100px;
   position: relative;
-  left: 25%;
-  margin: 15px;
-  width: 50%;
-  text-decoration: none;
-  font-size: 20px;
+  left: 30px;
+  top: 1.7rem;
 }
 
-.menuOptions h3:hover {
-  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
-}
-
-.retroStyle {
-  font-family: 'Press Start 2P';
-  color: rgb(192, 192, 192);
-  text-shadow: 2px 2px 0 rgb(192, 11, 11);
-  background: #130d28;
-}
-
-.startBttn {
+.st-bound-right {
+  float: right;
+  width: 119px;
+  left: 0.8rem;
   position: relative;
-  left: 1%;
-  font-size: 30px;
+  top: 1.6rem;
 }
 
-.startBttn:hover {
-  background: repeating-linear-gradient(#0D122B, #0D122B 2px, #565B73 2px, #565B73 4px);
-}
-
-.gameover h1 {
-  position: absolute;
-  bottom: 50px;
-}
-
-#frameBox {
-  position: absolute;
-  top: 15px;
-  left: 300px;
-  width: 800px;
-  height: 600px;
-  color: white;
-  font-family: 'Raleway';
-  font-size: 2.5rem;
-}
-
-.gameInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: stretch;
-  font-size: 13px;
-  margin: 15px;
-  width: 240px;
-}
-
-.gradient-border {
-  --borderWidth: 3px;
-  background: #130d28;
+.st-bottom {
+  clear: both;
+  top: -1.8rem;
   position: relative;
-  border-radius: var(--borderWidth);
+  left: 1rem;
+  letter-spacing: -9px;
+  font-size: 100px;
 }
 
-.gradient-border:after {
-  content: '';
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  background-size: 300% 300%;
+.st-drop {
+  line-height: 0;
+  position: relative;
+  top: 3.1rem;
 }
 
-@keyframes animatedgradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+.st-stranger-s {
+  font-size: 10.5rem;
+  letter-spacing: -30px;
 }
+
+.st-stranger-t {
+  letter-spacing: -22px;
+}
+
+.st-stranger-r {
+  letter-spacing: -22px;
+}
+
+.st-stranger-a {
+  letter-spacing: -22px;
+}
+
+.st-stranger-n {
+  letter-spacing: -22px;
+}
+
+.st-stranger-g {
+  letter-spacing: -22px;
+}
+
+.st-stranger-e {
+  letter-spacing: -122px;
+}
+
+.st-stranger-r-2 {
+  font-size: 10.5rem;
+  right: -2.3rem;
+}
+
+.st-dots-d {
+  font-size: 104%;
+  letter-spacing: 2px;
+}
+
+.st-dots-o {
+  letter-spacing: -5px;
+}
+
+.st-dots-t {
+  letter-spacing: -3px;
+}
+
+.st-dots-s {
+  letter-spacing: -1px;
+}
+
+/* ===== end initPage ===== */
+/* ===== footer section ===== */
 
 .footer p {
   position: absolute;
@@ -217,5 +259,3 @@ body:before {
   text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
     2px 2px 0 rgb(151, 109, 19);
 }
-
-/* ####### End - landing page section ####### */
