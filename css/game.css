@@ -1,0 +1,230 @@
+/* ===== game frame ===== */
+
+#frameBox {
+  position: absolute;
+  top: 15px;
+  left: 300px;
+  width: 800px;
+  height: 600px;
+  color: white;
+  font-family: "Raleway";
+  font-size: 2.5rem;
+}
+
+.gameInfo {
+  left: 0%;
+  top: 0rem;
+  position: relative;
+  font-size: 13px;
+  margin: 15px;
+  width: 240px;
+}
+
+#challenge {
+  position: absolute;
+  left: 28rem;
+  top: -8rem;
+  font-size: 1.5rem;
+  width: 33rem;
+}
+
+.gradient-border {
+  --borderWidth: 3px;
+  background: #000;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient-border:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== end - game frame ===== */
+/* ===== start game dots ===== 2*/
+
+.dotClass {
+  position: relative;
+  width: 1em;
+  height: 2em;
+  margin: 0 0.2em;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.dotClass:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 40px;
+  height: 22px;
+  border-radius: 3px;
+  top: -3px;
+  left: 0;
+}
+
+.dotClass:after {
+  content: "";
+  top: -3px;
+  left: 2rem;
+  position: absolute;
+  width: 40px;
+  height: 17px;
+  border-bottom: solid #222 2px;
+  border-radius: 50%;
+}
+
+/* content */
+.dotGameContent {
+  position: absolute;
+  margin-top: 15%;
+  width: 225px;
+  right: 260px;
+}
+
+.dotGameContent div:hover,
+.dotGameContent div:active {
+  animation: dotGameContent 0.5s;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+.dotGameContent div:active {
+  box-shadow: 0 0 0 5px #df4a42;
+}
+/* ===== end game dots ===== */
+
+/* ===== eleven section ===== */
+
+#eleven-img img {
+  width: 24rem;
+  top: 0rem;
+  position: absolute;
+  left: 0rem;
+  z-index: -1;
+}
+
+#welldone-msg img {
+  position: absolute;
+  display: block;
+  height: 20rem;
+  top: 16rem;
+  left: 3rem;
+}
+
+#welldone-tooltip {
+  color: white;
+  padding: 9px;
+  font-size: 1rem;
+  background: slateblue;
+  width: 130px;
+  border-radius: 5px;
+  position: absolute;
+  left: 8rem;
+  top: 11rem;
+  transform: translateX(-50%);
+}
+
+#welldone-tooltip:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid slateblue;
+  bottom: -19px;
+  left: 15%;
+}
+/* ===== end eleven section ===== */
+/* ===== demogorgon section ===== */
+#demogorgon-img img {
+  position: absolute;
+  right: -13rem;
+  z-index: -1;
+  height: 25rem;
+  top: 0;
+}
+
+#demogorgon-msg img {
+  position: absolute;
+  right: 0rem;
+  z-index: -1;
+  height: 27rem;
+  top: 13rem;
+}
+
+#gameover-tooltip {
+  color: white;
+  padding: 9px;
+  font-size: 1rem;
+  background: slateblue;
+  width: 151px;
+  border-radius: 5px;
+  position: absolute;
+  right: 1rem;
+  top: 11rem;
+  transform: translateX(-50%);
+}
+
+#gameover-tooltip:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid slateblue;
+  bottom: -19px;
+  right: 2rem;
+}
+/* end demogorgon section */
+
+#close {
+  content: "x";
+  position: absolute;
+  top: -0.2rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
+
+#references ul {
+  font-size: 1.9rem;
+  list-style: none;
+}

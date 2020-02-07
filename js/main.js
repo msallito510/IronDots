@@ -28,24 +28,28 @@ const dotsBckG = [
   { background: "#AB82FF" }
 ];
 
-const level1 = 5;
-const level2 = 15;
-const leve3 = 30;
 const dotsGame = new Game(dotsBckG);
 
 document.addEventListener("DOMContentLoaded", event => {
   let levelGame = 1;
+  const level1 = 5;
+  const level2 = 15;
+  const level3 = 30;
 
-  initPage();
-
-  // ===== Start button =====
+  // ===== listener =====
   startBtn = document.getElementById("start");
   restartBtn = document.getElementById("restart");
+  instructions = document.getElementById("instruction_lnk");
+  references = document.getElementById("reference_lnk");
+  closeX = document.getElementById("close");
 
   startBtn.addEventListener("click", start);
   restartBtn.addEventListener("click", restart);
+  instructions.addEventListener("click", instructionMsg);
+  references.addEventListener("click", referencesInfo);
+  closeX.addEventListener("click", restart);
 
-  // ========================
+  // ===== end listener =====
 
   function restart() {
     location.reload();
@@ -59,15 +63,23 @@ document.addEventListener("DOMContentLoaded", event => {
     gameOver = document.getElementById("gameover");
     displayDotMatched = document.getElementById("player_score_GameOver");
     restart = document.getElementById("restart");
+    challengeInfo = document.getElementById("challenge");
+    showDemogorgon = document.getElementById("demogorgon-msg");
+    showDemogorgonMsg = document.getElementById("gameover-tooltip");
 
     frameBox.style = "background: transparent";
     gameOver.style = "display: block";
     restart.style = "diplay: block";
+    challengeInfo.style = "display: none";
+    showDemogorgon.style = "diplay: block";
+    showDemogorgonMsg.style = "diplay: block";
     displayDotMatched.textContent = dotsGame.dotMatched;
+
+    dotsGame.playMusic("stop", levelGame);
   }
 
   function start() {
-    dotsGame.playMusic("play", levelGame);
+    setMusicGame();
 
     cleanScreen();
 
@@ -88,15 +100,42 @@ document.addEventListener("DOMContentLoaded", event => {
     selectDots();
   }
 
+  function instructionMsg() {
+    cleanScreen();
+
+    setFrame();
+
+    frameClose();
+
+    instructions = document.getElementById("instructions");
+
+    instructions.style = "display: block";
+  }
+
+  function referencesInfo() {
+    cleanScreen();
+
+    setFrame();
+
+    frameClose();
+
+    references = document.getElementById("references");
+
+    references.style = "display: block";
+  }
+
+  function frameClose() {
+    closeX = document.getElementById("close");
+
+    closeX.style = "display: block";
+  }
+
   //##########################################
   //######### FUNCTION SECTION ###############
   //##########################################
 
-  function initPage() {
-    dotChild = document.querySelectorAll(".dot");
-    dotChild.forEach(function(d, idx) {
-      d.classList.add("dotClass", `dotClass-${idx}`);
-    });
+  function setMusicGame() {
+    dotsGame.playMusic("play", levelGame);
   }
 
   function showCurrentLevel() {
@@ -123,6 +162,8 @@ document.addEventListener("DOMContentLoaded", event => {
 
   function achieveChallenge() {
     totalScore = dotsGame.dotMatched;
+    // welldone11 = document.getElementById("welldone-msg");
+    // tooltip = document.getElementById("welldone-tooltip");
 
     switch (levelGame) {
       case 1:
@@ -130,8 +171,11 @@ document.addEventListener("DOMContentLoaded", event => {
           printGameOver();
         } else {
           dotsGame.winSound();
+          dotsGame.playMusic("stop", levelGame);
           levelGame++;
-          alert("Well done!");
+
+          welldoneMessage();
+          setTimeout(closeWellDone, 4000);
 
           start();
         }
@@ -140,9 +184,12 @@ document.addEventListener("DOMContentLoaded", event => {
         if (totalScore < level2) {
           printGameOver();
         } else {
+          dotsGame.winSound();
+          dotsGame.playMusic("stop", levelGame);
           levelGame++;
-          alert("Well done!");
-          dotsGame._music_level2("stop");
+          welldoneMessage();
+          setTimeout(closeWellDone, 4000);
+
           start();
         }
         break;
@@ -150,7 +197,9 @@ document.addEventListener("DOMContentLoaded", event => {
         if (totalScore < level3) {
           printGameOver();
         } else {
-          alert("Well done!");
+          dotsGame.winSound();
+          dotsGame.playMusic("stop", levelGame);
+          welldoneMessage();
         }
         break;
       default:
@@ -158,6 +207,22 @@ document.addEventListener("DOMContentLoaded", event => {
         printGameOver();
         break;
     }
+  }
+
+  function welldoneMessage() {
+    welldone11 = document.getElementById("welldone-msg");
+    tooltip = document.getElementById("welldone-tooltip");
+
+    tooltip.style = "display: block";
+    welldone11.style = "display: block";
+  }
+
+  function closeWellDone() {
+    welldone11 = document.getElementById("welldone-msg");
+    tooltip = document.getElementById("welldone-tooltip");
+
+    tooltip.style = "display: none";
+    welldone11.style = "display: none";
   }
 
   function shuffleDots(level) {
@@ -171,7 +236,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
         dotsGame.shuffleDots(4).forEach(el => {
           if (idxHtml < 4) {
-            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
+            html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
               el.background
             }'></div>`;
           }
@@ -182,7 +247,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
         dotsGame.shuffleDots(8).forEach(el => {
           if (idxHtml < 8) {
-            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
+            html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
               el.background
             }'></div>`;
           }
@@ -193,7 +258,7 @@ document.addEventListener("DOMContentLoaded", event => {
 
         dotsGame.shuffleDots(12).forEach(el => {
           if (idxHtml < 12) {
-            html += `<div class='dotGame dotClass pulse' id='${idxHtml++}' style='margin-top: 50px; background:${
+            html += `<div class='dotGame dotClass' id='${idxHtml++}' style='margin-top: 50px; background:${
               el.background
             }'></div>`;
           }
@@ -210,10 +275,14 @@ document.addEventListener("DOMContentLoaded", event => {
     titleDot = document.getElementById("titleDot");
     dotsInit = document.getElementById("dots");
     menu = document.getElementById("menu");
+    eleven = document.getElementById("eleven-img");
+    demogorgon = document.getElementById("demogorgon-img");
 
     titleDot.style = "display: none";
     dotsInit.style = "display: none";
     menu.style = "display: none";
+    eleven.style = "display: none";
+    demogorgon.style = "display: none";
   }
 
   function setFrame() {
