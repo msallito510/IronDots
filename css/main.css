@@ -47,7 +47,7 @@ body:before {
 
 .menu .menuOptions > h3 {
   position: relative;
-  left: 21rem;
+  left: 11rem;
   margin: 15px;
   width: 73rem;
   text-decoration: none;
@@ -255,7 +255,7 @@ body:before {
 .footer p {
   position: absolute;
   bottom: 0;
-  left: 48rem;
+  left: 38rem;
   font-size: 10px;
   color: rgb(226, 179, 24);
   text-shadow: 0 2px 0 rgb(107, 77, 11), 2px 0 0 rgb(151, 109, 19),
