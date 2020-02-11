@@ -1,10 +1,6 @@
 # Welcome to StrangerDots!
 
-The purpose of the game is to match two or more points that have the same colour and reach the highest possible score against the clock.
-The colors appear on the screen in horizontal or vertical format.
-The screen is a combination of points with different colours where the player has to match one point with another point of the same colour.
-The player can use the mouse to select the first point and then the other point.
-The game ends when the time is over.
+The purpose of the game is to match two dots or lights that have the same colour and reach the highest possible score against the clock. The colours appear on the screen in horizontal or vertical format. The player can use the mouse to select the first point and then select the other point. The game ends when time over.
 
 ## MVP
 
